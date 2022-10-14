@@ -1,4 +1,5 @@
 name: Build
+
 on:
   push:
     branches:
@@ -12,8 +13,10 @@ jobs:
         os: [windows-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v3
+      
       - name: Restore dependencies
-      - run: npm ci
+        run: npm ci
+      
       - name: Build          
-      - run: npm run all 
+        run: npm run all 
           
