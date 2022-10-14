@@ -1,4 +1,4 @@
-name: Test
+name: Build
 on:
   push:
     branches:
@@ -12,8 +12,8 @@ jobs:
         os: [windows-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@v3
-      - name: Create a release draft for version tag
-        id: create-release-draft
-        uses: ./
-      - name: Print the URL of the release draft 
-        run: echo ${{ steps.create-release-draft.outputs.release-url }}
+      - name: Restore dependencies
+      - run: npm ci
+      - name: Build          
+      - run: npm run all 
+          
